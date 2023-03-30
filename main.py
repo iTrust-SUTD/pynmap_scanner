@@ -15,22 +15,22 @@ bdict={
 o = ("-------------------------------------------------------------------\n")
 separate=("---------------------\n")
 nmScan.scan(x)
-results = nm.nmap_os_detection(x) 
+results = nm.nmap_os_detection(x) #output of os scan of network/device
 def os(scantype,writingtype):
     filename = scantype+'_'+time+'.txt'
     file1 = open(filename, writingtype)
-    for host in nmScan.all_hosts():
+    for host in nmScan.all_hosts(): #scanning individual hosts in a network 
         L=('Device :'+host+'\n') 
         file1.writelines(o)
         file1.writelines(L)
         file1.writelines(separate)
         osstart = ("--OS Matches--\n")
         file1.writelines(osstart)
-        osstats = results[host]["osmatch"]
+        osstats = results[host]["osmatch"]#filter list to only os information
         for i in list(osstats):
             a = i["accuracy"]
             q=i["name"]
-            if "cpe" in i:
+            if "cpe" in i:#check is key "cpe"is in device
                 v = i["cpe"]
             else:
                 v="cpe:[NONE]"
