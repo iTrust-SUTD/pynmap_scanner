@@ -1,3 +1,5 @@
+#Code uses python language, by Lucas, email: lucas.yeo69@gmail.com
+#This code scans the network is 3 different modes,the 4th option is using all 3 modes at once.
 import nmap3
 import json
 
@@ -30,7 +32,7 @@ def os(scantype,writingtype):
         for i in list(osstats):
             a = i["accuracy"]
             q=i["name"]
-            if "cpe" in i:#check is key "cpe"is in device
+            if "cpe" in i:#check if key "cpe"is in device
                 v = i["cpe"]
             else:
                 v="cpe:[NONE]"
