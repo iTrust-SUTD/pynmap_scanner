@@ -1,12 +1,10 @@
 #Code uses python language, by Lucas, email: lucas.yeo69@gmail.com
 #This code scans the network is 3 different modes,the 4th option is using all 3 modes at once.
 import nmap3
-import json
-
 import nmap
+import datetime
 nmScan = nmap.PortScanner()
 nm = nmap3.Nmap()
-import datetime
 now = datetime.datetime.now()
 x = input("Enter network/device you want to scan for: ")
 time = (now.strftime("%Y-%m-%d %H%M"))
@@ -62,22 +60,29 @@ def ports(scantype, writingtype):
                 file1.writelines(p)
             file1.writelines(separate)
     print("The output is in "+filename)
-if y == "os" or y== "OS" or y == "scan os" or y == "scan OS":
-    os("OS",'w')
-elif y == "port" or y == "Port" or y== "scan port" or y== "Scan Port":
-    ports("Ports",'w')
-elif y == "all" or y == "All":
-    ports("All",'a')
-    os("All",'a')
-elif y == "ping" or y == "Ping":
-    scantype = "Ping"
-    filename = scantype+'_'+time+'.txt'
-    file1 = open(filename, 'w')
-    for host in nmScan.all_hosts():
-        L=('Device :'+host+'\n') 
-        file1.writelines(L)
-    print("The output is in "+filename)
+def choice():
+    y = input("Ping,scan OS, scan ports, or all: ")
+    if y == "os" or y== "OS" or y == "scan os" or y == "scan OS":
+        os("OS",'w')
+    elif y == "port" or y == "Port" or y== "scan port" or y== "Scan Port":
+        ports("Ports",'w')
+    elif y == "all" or y == "All":
+        ports("All",'a')
+        os("All",'a')
+    elif y == "ping" or y == "Ping":
+        scantype = "Ping"
+        filename = scantype+'_'+time+'.txt'
+        file1 = open(filename, 'w')
+        for host in nmScan.all_hosts():
+            L=('Device :'+host+'\n') 
+            file1.writelines(L)
+        print("The output is in "+filename)
+    else:
+        print("-Please input again-")
+        choice()
+choice()
 print("--DONE--")
+
 
 
 
