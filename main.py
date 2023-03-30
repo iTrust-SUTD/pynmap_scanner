@@ -16,6 +16,12 @@ separate=("---------------------\n")
 nmScan.scan(x)
 results = nm.nmap_os_detection(x) #output of os scan of network/device
 def os(scantype,writingtype):
+    """_summary_
+
+    Args:
+        scantype (_type_): type of scan (e.g. ping, os or all)
+        writingtype (_type_): 'w' or 'a' to write to a file
+    """
     filename = scantype+'_'+time+'.txt'
     file1 = open(filename, writingtype)
     for host in nmScan.all_hosts(): #scanning individual hosts in a network 
@@ -37,6 +43,12 @@ def os(scantype,writingtype):
             file1.writelines(v+"\n")
     print("The output is in "+filename)
 def ports(scantype, writingtype):
+    """_summary_
+
+    Args:
+        scantype (_type_): type of scan(os,ports or all)
+        writingtype (_type_): 'w' or 'a' to write to file
+    """
     filename = scantype+'_'+time+'.txt'
     print(filename)
     file1 = open(filename, writingtype)
@@ -63,7 +75,7 @@ def choice():
     y = input("Ping,scan OS, scan ports, or all: ")
     if y == "os" or y== "OS" or y == "scan os" or y == "scan OS":
         os("OS",'w')
-    elif y == "ports" or y == "Ports" or y== "scan ports" or y== "Scan Ports":
+    elif y == "ports" or y == "Port" or y== "scan port" or y== "Scan Port":
         ports("Ports",'w')
     elif y == "all" or y == "All":
         ports("All",'a')
