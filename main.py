@@ -8,7 +8,6 @@ nm = nmap3.Nmap()
 now = datetime.datetime.now()
 x = input("Enter network/device you want to scan for: ")
 time = (now.strftime("%Y-%m-%d %H%M"))
-y = input("Ping,scan OS, scan ports, or all: ")
 bdict={
     
 }
@@ -64,7 +63,7 @@ def choice():
     y = input("Ping,scan OS, scan ports, or all: ")
     if y == "os" or y== "OS" or y == "scan os" or y == "scan OS":
         os("OS",'w')
-    elif y == "port" or y == "Port" or y== "scan port" or y== "Scan Port":
+    elif y == "ports" or y == "Ports" or y== "scan ports" or y== "Scan Ports":
         ports("Ports",'w')
     elif y == "all" or y == "All":
         ports("All",'a')
