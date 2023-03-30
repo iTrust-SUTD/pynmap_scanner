@@ -15,6 +15,8 @@ A python script that allows you to scan your network in 4 different modes.(Ping,
 * With pip
    ```
    pip install -r requirements.txt
+   pip install python-nmap
+   pip install python3-nmap
    ```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
