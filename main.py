@@ -7,7 +7,7 @@ nmScan = nmap.PortScanner()
 nm = nmap3.Nmap()
 now = datetime.datetime.now()
 x = input("Enter network/device you want to scan for: ")
-def istrue(x): 
+def istrue(x): #checks if input is a valid ip address
     """_summary_
 
     Args:
@@ -28,7 +28,7 @@ o = ("-------------------------------------------------------------------\n")
 separate=("---------------------\n")
 nmScan.scan(x)
 results = nm.nmap_os_detection(x) #output of os scan of network/device
-def os(scantype,writingtype):
+def os(scantype,writingtype): # scans network and returns os name and cpe with device name
     """_summary_
 
     Args:
@@ -37,25 +37,25 @@ def os(scantype,writingtype):
     """
     filename = scantype+'_'+time+'.txt'
     file1 = open(filename, writingtype)
-    for host in nmScan.all_hosts(): #scanning individual hosts in a network 
+    for host in nmScan.all_hosts(): 
         L=('Device :'+host+'\n') 
         file1.writelines(o)
         file1.writelines(L)
         file1.writelines(separate)
         osstart = ("--OS Matches--\n")
         file1.writelines(osstart)
-        osstats = results[host]["osmatch"]#filter list to only os information
+        osstats = results[host]["osmatch"]
         for i in list(osstats):
             a = i["accuracy"]
             q=i["name"]
-            if "cpe" in i:#check if key "cpe"is in device
+            if "cpe" in i:
                 v = i["cpe"]
             else:
                 v="cpe:[NONE]"
             file1.writelines("os name:"+q+"   (accuracy:"+a+")\n")
             file1.writelines(v+"\n")
     print("The output is in "+filename)
-def ports(scantype, writingtype):
+def ports(scantype, writingtype): #scans network and returns ports with device name
     """_summary_
 
     Args:
