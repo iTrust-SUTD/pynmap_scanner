@@ -7,6 +7,19 @@ nmScan = nmap.PortScanner()
 nm = nmap3.Nmap()
 now = datetime.datetime.now()
 x = input("Enter network/device you want to scan for: ")
+def istrue(x): 
+    """_summary_
+
+    Args:
+        x (): ip address of device/network
+    """
+    try:
+        ip_object = ipaddress.ip_address(x)
+    except ValueError:
+        print("Not valid ip address")
+        x = input("Pls input again: ")
+        istrue(x)
+istrue(x)
 time = (now.strftime("%Y-%m-%d %H%M"))
 bdict={
     
@@ -19,8 +32,8 @@ def os(scantype,writingtype):
     """_summary_
 
     Args:
-        scantype (_type_): type of scan (e.g. ping, os or all)
-        writingtype (_type_): 'w' or 'a' to write to a file
+        scantype (): type of scan (e.g. ping, os or all)
+        writingtype (): 'w' or 'a' to write to a file
     """
     filename = scantype+'_'+time+'.txt'
     file1 = open(filename, writingtype)
@@ -46,8 +59,8 @@ def ports(scantype, writingtype):
     """_summary_
 
     Args:
-        scantype (_type_): type of scan(os,ports or all)
-        writingtype (_type_): 'w' or 'a' to write to file
+        scantype (): type of scan(os,ports or all)
+        writingtype (   ): 'w' or 'a' to write to file
     """
     filename = scantype+'_'+time+'.txt'
     print(filename)
