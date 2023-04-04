@@ -8,32 +8,31 @@
 A python script that allows you to scan your network in 4 different modes.(Ping, scan os, scan ports or do all 3)
 
 ### Requirements
-* Python >= 3.10
+* Python >= 3.11
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Installation
 * With pip
    ```
-   pip install -r requirements.txt
    pip install python-nmap
    pip install python3-nmap
    ```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Usage
-* Add some text here
+* Use administrator mode command line to run this code
    ```
-   -Use administrator mode command line to run this code
-   -Once inside cd to the file lol2.py was downloaded in
-   -run python lol2.py
-   When running the code, it will ask you for a network/device to scan. 
-   Input the IP address of the device/network(e.g.127.0.0.1). 
-   After that choose from Ping, scan os, scan ports or all. 
-   Choose the option you want. 
-   After a while it should say that the output is in a file with the time you inputted the options. 
-   For example at 12:42 pm on 13 March 2020, I chose to scan os of 127.0.0.1, 
-   the file name should be OS_2020-03-13 1242.txt.
+   python main.py
    ```
+   When running the code, it will prompt you for a network/device to scan. 
+   
+   Input the IP address of the device/network(e.g. 192.168.1.12 or 192.168.1.0/24). 
+   
+   After that choose from Ping, scan os, scan ports or all. Choose the option you want. 
+   
+   The program will scan the device/network and output a file with the time you inputted the options. 
+   
+   For example at 12:42 pm on 13 March 2020, I chose to scan os of 127.0.0.1, the file name should be OS_2020-03-13_1242.txt.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
